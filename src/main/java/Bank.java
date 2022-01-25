@@ -23,8 +23,10 @@ public class Bank {
   public void setLocation(String location) {
   this.location = location;}
   
-@Override 
-public String toString(){return "Bank [bid=" + bid + ", bname=" + bname + ", location=" + location + "]";}
+  @Override 
+  public String toString(){return "Bank [bid=" + bid + ", bname=" + bname + ", location=" + location + "]";}
+  
+	
 	
   
   

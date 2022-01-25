@@ -1,3 +1,5 @@
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -8,7 +10,6 @@ public class JPADemo {
     // TODO Auto-generated method stub
 
 	  
-	  Bank bank=new Bank();
 	  
 	  
 	  EntityManagerFactory emf=Persistence.createEntityManagerFactory("nagoor");
@@ -17,10 +18,13 @@ public class JPADemo {
 	  
 	  em.getTransaction().begin();
 	  
-	  bank=em.find(Bank.class, 523315);
-	  
-	  System.out.println(bank);
-			  
+	  List<Object[]> al = em.createNativeQuery("SELECT * FROM Bank" ).getResultList();
+
+			for(Object[] bank : al) {
+				Bank ban=em.find(Bank.class, bank[0]);
+			    System.out.println(ban);
+			}
+						  
 	  em.getTransaction().commit();
   }
 }
